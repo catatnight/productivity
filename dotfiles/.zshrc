@@ -45,19 +45,20 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git systemd docker vi-mode tmux)
+plugins=(git systemd docker vi-mode tmux history-substring-search)
+
+# tmux setting
 export KEYTIMEOUT=1
 export ZSH_TMUX_AUTOSTART=true
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-source $ZSH/plugins/history-substring-search/history-substring-search.zsh
 #bind k and j for VI mode
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-export PATH="/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/sbin:/home/vagrant/bin"
+export PATH="$PATH:/home/$(whoami)/.local/bin:/home/$(whoami)/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
